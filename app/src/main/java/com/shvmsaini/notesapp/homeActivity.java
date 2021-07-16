@@ -68,7 +68,7 @@ public class homeActivity extends AppCompatActivity {
                     notesList.remove(notesList.get(viewHolder.getAdapterPosition()));
                     adapter.notifyItemRemoved(viewHolder.getAdapterPosition());
                     toggleEmptyNotes();
-
+                    showToastMessage("Note Succesfully Deleted");
                 } else {
                     showNoteDialog(true, adapter.notes.get(viewHolder.getAdapterPosition()), viewHolder.getAdapterPosition());
                     adapter.notifyItemChanged(viewHolder.getAdapterPosition());
@@ -224,4 +224,8 @@ public class homeActivity extends AppCompatActivity {
         }
     }
 
+    // Function to Give Toast Message to User in Home Activity
+    public void showToastMessage(String message) {
+        Toast.makeText(homeActivity.this, message, Toast.LENGTH_SHORT).show();
+    }
 }
