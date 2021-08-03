@@ -17,15 +17,6 @@
         android:textSize="@dimen/lbl_new_note_title"
         android:textStyle="normal" />
     
-    <TextView
-        android:id="@+id/timestamp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/dialog_title"
-        android:textSize="@dimen/timestamp"
-        android:fontFamily="sans-serif-medium"/>
-        
-
     <EditText
         android:id="@+id/note"
         android:layout_width="match_parent"
