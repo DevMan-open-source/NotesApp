@@ -10,16 +10,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
-
-import kotlin.UByte;
 
 public class customAdapter extends RecyclerView.Adapter<customAdapter.customViewHolder> {
     private final String LOG_TAG = getClass().toString();
     private Context context;
     List<Note> notes;
-   
+
     public customAdapter(Context context,List<Note> noteList){
         Log.d(LOG_TAG,"Constructor created");
         this.context = context;
@@ -39,10 +39,10 @@ public class customAdapter extends RecyclerView.Adapter<customAdapter.customView
     public void onBindViewHolder(@NonNull customViewHolder holder, int position) {
         Note note = notes.get(position);
         holder.content.setText(note.getNote());
-       
+
         // Formatting and displaying timestamp
         holder.timestamp.setText(formatDate(note.getTimestamp()));
-        
+
         Log.d(LOG_TAG,"bindViewHolder");
     }
 
@@ -50,7 +50,7 @@ public class customAdapter extends RecyclerView.Adapter<customAdapter.customView
     public int getItemCount() {
         return notes.size();
     }
-    
+
     /**
      * Formatting timestamp to `MMM d` format
      * Input: 2018-02-21 00:15:42
@@ -63,15 +63,15 @@ public class customAdapter extends RecyclerView.Adapter<customAdapter.customView
             SimpleDateFormat fmtOut = new SimpleDateFormat("MMM d");
             return fmtOut.format(date);
         } catch (ParseException e) {
- 
+
         }
- 
+
         return "";
     }
-   public class customViewHolder extends RecyclerView.ViewHolder {
+    public class customViewHolder extends RecyclerView.ViewHolder {
         public TextView content;
         public TextView timestamp;
- 
+
         public customViewHolder(View view) {
             super(view);
             content = view.findViewById(R.id.content);
@@ -79,3 +79,4 @@ public class customAdapter extends RecyclerView.Adapter<customAdapter.customView
         }
     }
 }
+
