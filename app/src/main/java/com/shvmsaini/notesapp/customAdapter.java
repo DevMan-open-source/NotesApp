@@ -65,7 +65,7 @@ public class customAdapter extends RecyclerView.Adapter<customAdapter.customView
             SimpleDateFormat fmtOut = new SimpleDateFormat("MMM d");
             return fmtOut.format(date);
         } catch (ParseException e) {
-
+            Log.e(LOG_TAG,e.getMessage());
         }
 
         return "";
